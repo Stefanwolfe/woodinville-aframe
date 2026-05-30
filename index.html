@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20002 156th Ave NE | Woodinville</title>
+<meta name="description" content="A rare Northwest A-frame on over an acre in Woodinville. 4 bed, 2.75 bath, 3,340 sq ft. Offered at $1,850,000.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#141210;
+  --dark-warm:#1e1b18;
+  --cream:#f4efe7;
+  --cream-mid:#e8e1d5;
+  --amber:#c89b6a;
+  --amber-light:#d4ad7f;
+  --forest:#2b3d2e;
+  --stone:#8a7e6f;
+  --text-light:#e2ddd5;
+  --text-dark:#2a2520;
+  --serif:'Cormorant',Georgia,serif;
+  --sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --label:'Tenor Sans','Helvetica Neue',sans-serif;
+  --nav-h:64px;
+  --angle:3.5vw;
+}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--text-dark);
+  background:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ========== LOADER ========== */
+.loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--dark);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .8s ease, visibility .8s ease;
+}
+.loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.loader-triangle{width:80px;height:70px;margin-bottom:28px}
+.loader-triangle svg{width:100%;height:100%}
+.loader-triangle path{
+  fill:none;stroke:var(--amber);stroke-width:1.5;
+  stroke-dasharray:240;stroke-dashoffset:240;
+  animation:drawTriangle 1.6s ease forwards;
+}
+@keyframes drawTriangle{to{stroke-dashoffset:0}}
+.loader-text{
+  font-family:var(--label);font-size:11px;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--stone);opacity:0;animation:fadeUp .6s ease .8s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.loader-text{transform:translateY(8px)}
+
+/* ========== NAV ========== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(24px,4vw,56px);
+  transition:background .4s ease, box-shadow .4s ease;
+}
+nav.scrolled{background:rgba(20,18,16,.95);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(200,155,106,.12)}
+.nav-logo{
+  font-family:var(--label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--cream);text-decoration:none;white-space:nowrap;
+}
+.nav-links{display:flex;gap:clamp(16px,2.5vw,36px);align-items:center}
+.nav-links a{
+  font-family:var(--label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(226,221,213,.6);text-decoration:none;transition:color .3s ease;
+}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{
+  font-family:var(--label);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--amber)!important;border:1px solid rgba(200,155,106,.35);
+  padding:8px 18px;transition:all .3s ease;
+}
+.nav-cta:hover{background:var(--amber);color:var(--dark)!important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--cream);transition:all .3s ease}
+
+/* ========== HERO ========== */
+.hero{
+  position:relative;height:100vh;min-height:600px;overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('images/photos/hero-dusk.jpg') center/cover no-repeat;
+  animation:heroKenBurns 14s ease-out forwards;
+  will-change:transform;
+}
+@keyframes heroKenBurns{from{transform:scale(1.16)}to{transform:scale(1)}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(20,18,16,.2) 0%, transparent 30%,transparent 50%, rgba(20,18,16,.7) 100%);
+}
+.hero-frame{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.hero-frame svg{
+  width:min(55vw,500px);height:auto;opacity:.15;
+  filter:drop-shadow(0 0 40px rgba(200,155,106,.15));
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;padding-bottom:clamp(48px,8vh,100px);
+  opacity:0;animation:fadeUp .8s ease 1.2s forwards;
+  transform:translateY(8px);
+}
+.hero-address{
+  font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:300;
+  color:#fff;letter-spacing:.02em;line-height:1.1;margin-bottom:12px;
+}
+.hero-sub{
+  font-family:var(--label);font-size:clamp(10px,1.2vw,13px);letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber-light);
+}
+.hero-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fadeUp .6s ease 2s forwards;
+}
+.hero-scroll span{
+  font-family:var(--label);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(226,221,213,.4);
+}
+.hero-scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--amber),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ========== REVEAL ANIMATION ========== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+
+/* ========== CHEVRON ORNAMENT ========== */
+.chevron{display:flex;justify-content:center;margin-bottom:28px}
+.chevron svg{width:36px;height:18px;stroke:var(--amber);stroke-width:1.2;fill:none}
+
+/* ========== SECTION: OPENING ========== */
+.opening{
+  background:var(--dark-warm);color:var(--text-light);
+  padding:clamp(80px,12vw,160px) clamp(24px,8vw,120px);
+  text-align:center;position:relative;
+}
+.opening-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.opening h2{
+  font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:300;font-style:italic;
+  line-height:1.4;max-width:780px;margin:0 auto 32px;color:var(--cream);
+}
+.opening p{
+  font-size:clamp(14px,1.1vw,16px);line-height:1.85;max-width:620px;margin:0 auto;
+  color:rgba(226,221,213,.7);font-weight:300;
+}
+
+/* ========== ANGLED DIVIDER ========== */
+.angle-divider{
+  position:relative;height:var(--angle);margin-top:calc(var(--angle) * -1);z-index:2;
+}
+.angle-divider--cream{
+  background:linear-gradient(to bottom right, transparent 49.8%, var(--cream) 50%);
+}
+.angle-divider--dark{
+  background:linear-gradient(to bottom right, transparent 49.8%, var(--dark-warm) 50%);
+}
+.angle-divider--dark2{
+  background:linear-gradient(to bottom left, transparent 49.8%, var(--dark-warm) 50%);
+}
+.angle-divider--cream2{
+  background:linear-gradient(to bottom left, transparent 49.8%, var(--cream) 50%);
+}
+
+/* ========== SECTION: STATS ========== */
+.stats{
+  background:var(--cream);
+  padding:clamp(80px,10vw,120px) clamp(24px,6vw,80px);
+  text-align:center;position:relative;
+}
+.stats-grid{
+  display:flex;justify-content:center;gap:clamp(32px,5vw,80px);flex-wrap:wrap;
+  max-width:800px;margin:0 auto;
+}
+.stat{text-align:center}
+.stat-num{
+  font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:300;
+  color:var(--text-dark);line-height:1;margin-bottom:6px;
+}
+.stat-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--stone);
+}
+
+/* ========== FULL-BLEED IMAGE ========== */
+.full-bleed{
+  position:relative;height:clamp(50vh,70vh,85vh);overflow:hidden;
+}
+.full-bleed-img{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform 8s ease-out;
+}
+.full-bleed.in .full-bleed-img{transform:scale(1.04)}
+.full-bleed-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(20,18,16,.1),rgba(20,18,16,.5));
+}
+.full-bleed-text{
+  position:absolute;bottom:0;left:0;right:0;padding:clamp(32px,5vw,64px);
+  z-index:2;
+}
+.full-bleed-title{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3.6rem);font-weight:300;font-style:italic;
+  color:#fff;margin-bottom:8px;
+}
+.full-bleed-caption{
+  font-family:var(--label);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--amber-light);
+}
+
+/* ========== ASYMMETRIC FEATURE ========== */
+.feature{
+  display:grid;grid-template-columns:1fr 1fr;min-height:70vh;
+}
+.feature--wide-left{grid-template-columns:1.3fr .7fr}
+.feature--wide-right{grid-template-columns:.7fr 1.3fr}
+.feature-img{
+  position:relative;overflow:hidden;min-height:400px;
+}
+.feature-img img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 6s ease-out;
+}
+.feature.in .feature-img img{transform:scale(1.03)}
+.feature-body{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(40px,5vw,80px) clamp(32px,4vw,64px);
+}
+.feature-body--dark{background:var(--dark-warm);color:var(--text-light)}
+.feature-body--cream{background:var(--cream);color:var(--text-dark)}
+.feature-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:18px;
+}
+.feature-title{
+  font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.8rem);font-weight:300;font-style:italic;
+  line-height:1.3;margin-bottom:20px;
+}
+.feature-body--dark .feature-title{color:var(--cream)}
+.feature-body--cream .feature-title{color:var(--text-dark)}
+.feature-text{
+  font-size:clamp(13px,1vw,15px);line-height:1.85;font-weight:300;
+  max-width:440px;
+}
+.feature-body--dark .feature-text{color:rgba(226,221,213,.65)}
+.feature-body--cream .feature-text{color:rgba(42,37,32,.7)}
+.feature-detail{
+  display:flex;gap:24px;margin-top:24px;
+}
+.feature-detail-item{
+  font-family:var(--label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+}
+.feature-body--dark .feature-detail-item{color:var(--amber)}
+.feature-body--cream .feature-detail-item{color:var(--stone)}
+
+/* ========== IMAGE PAIR ========== */
+.image-pair{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  height:clamp(40vh,55vh,70vh);
+}
+.image-pair-item{
+  position:relative;overflow:hidden;
+}
+.image-pair-item img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 6s ease-out;
+}
+.image-pair.in .image-pair-item img{transform:scale(1.03)}
+
+/* ========== CINEMATIC SETTING ========== */
+.setting{
+  position:relative;min-height:80vh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.setting-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+}
+.setting-overlay{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center,rgba(20,18,16,.5),rgba(20,18,16,.85)),
+    linear-gradient(to bottom,rgba(20,18,16,.3),rgba(20,18,16,.7));
+}
+.setting-content{
+  position:relative;z-index:2;
+  padding:clamp(40px,6vw,80px);max-width:700px;
+}
+.setting-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.setting-title{
+  font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;font-style:italic;
+  color:#fff;line-height:1.25;margin-bottom:24px;
+  text-shadow:0 2px 40px rgba(0,0,0,.5);
+}
+.setting-text{
+  font-size:clamp(13px,1vw,15px);line-height:1.85;font-weight:400;
+  color:rgba(226,221,213,.8);max-width:520px;margin:0 auto;
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
+}
+
+/* ========== GALLERY (drag-scroll) ========== */
+.gallery{
+  background:var(--cream);padding:clamp(60px,8vw,100px) 0;position:relative;
+}
+.gallery-header{
+  text-align:center;padding:0 clamp(24px,4vw,56px);margin-bottom:clamp(36px,5vw,56px);
+}
+.gallery-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;
+}
+.gallery-title{
+  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;font-style:italic;
+  color:var(--text-dark);
+}
+.gallery-track{
+  display:flex;gap:16px;overflow-x:auto;cursor:grab;
+  padding:0 clamp(24px,4vw,56px);
+  scrollbar-width:none;-ms-overflow-style:none;
+  -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x proximity;
+}
+.gallery-track::-webkit-scrollbar{display:none}
+.gallery-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.gallery-track.dragging .gallery-item img{pointer-events:none}
+.gallery-item{
+  flex:0 0 auto;position:relative;overflow:hidden;
+  border-radius:2px;scroll-snap-align:start;
+}
+.gallery-item.wide{width:clamp(380px,40vw,520px);aspect-ratio:3/2}
+.gallery-item.sq{width:clamp(300px,30vw,400px);aspect-ratio:1/1}
+.gallery-item.pano{width:clamp(500px,55vw,700px);aspect-ratio:16/9}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .4s ease;pointer-events:none;
+}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-item{cursor:pointer}
+.gallery-nav{
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  margin-top:clamp(24px,3vw,40px);
+}
+.gallery-btn{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(42,37,32,.2);background:transparent;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .3s ease;color:var(--text-dark);
+}
+.gallery-btn:hover{border-color:var(--amber);color:var(--amber)}
+.gallery-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.gallery-counter{
+  font-family:var(--label);font-size:11px;letter-spacing:.15em;color:var(--stone);
+  min-width:60px;text-align:center;
+}
+
+/* ========== CINEMA (single film, B&W to color) ========== */
+.cinema{
+  background:var(--dark-warm);
+  padding:clamp(60px,8vw,110px) clamp(24px,6vw,80px);
+}
+.cinema-head{text-align:center;margin-bottom:clamp(36px,5vw,56px)}
+.cinema-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;
+}
+.cinema-title{
+  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;font-style:italic;
+  color:var(--cream);
+}
+.film{
+  position:relative;max-width:1100px;margin:0 auto;
+  aspect-ratio:16/9;overflow:hidden;cursor:pointer;border-radius:2px;
+  background:#0c0b09;
+}
+.film-poster{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%) brightness(.7) contrast(1.04);
+  transition:transform 1s ease, filter .9s ease;
+}
+.film:hover .film-poster{
+  transform:scale(1.03);
+  filter:grayscale(0%) brightness(.95) contrast(1) saturate(1.05);
+}
+.film-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, rgba(20,18,16,.72) 0%, rgba(20,18,16,.1) 58%, rgba(20,18,16,.34) 100%);
+}
+.film-meta{
+  position:absolute;top:22px;left:24px;
+  font-family:var(--label);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(226,221,213,.85);display:flex;gap:14px;align-items:center;
+}
+.film-meta-num{color:var(--amber-light)}
+.film-foot{position:absolute;bottom:24px;left:24px;right:24px}
+.film-title{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(20px,2.4vw,30px);color:#fff;
+}
+.film-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:84px;height:84px;border:1px solid rgba(226,221,213,.5);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(20,18,12,.18);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+  cursor:pointer;
+  transition:transform .4s ease, background .4s ease, border-color .4s ease;
+  animation:filmPulse 3.6s ease-out infinite;
+}
+.film-play svg{width:22px;height:22px;fill:rgba(226,221,213,.96);margin-left:4px}
+@keyframes filmPulse{0%,100%{box-shadow:0 0 0 0 rgba(226,221,213,.18)}60%{box-shadow:0 0 0 16px rgba(226,221,213,0)}}
+.film:hover .film-play{
+  transform:translate(-50%,-50%) scale(1.06);
+  background:rgba(200,155,106,.2);border-color:var(--amber-light);
+  animation-play-state:paused;
+}
+.film-frame{position:absolute;inset:0;display:none}
+.film-frame iframe{width:100%;height:100%;border:0}
+.film.playing .film-frame{display:block}
+.film.playing .film-poster,
+.film.playing .film-overlay,
+.film.playing .film-meta,
+.film.playing .film-foot,
+.film.playing .film-play{display:none}
+
+/* ========== LOCATION ========== */
+.location{
+  background:var(--dark-warm);
+  padding:clamp(60px,8vw,100px) clamp(24px,6vw,80px);
+  position:relative;
+}
+.location-inner{max-width:1100px;margin:0 auto}
+.location-header{text-align:center;margin-bottom:clamp(32px,4vw,56px)}
+.location-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;
+}
+.location-title{
+  font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;font-style:italic;
+  color:var(--cream);
+}
+.location-map{
+  width:100%;aspect-ratio:16/9;border-radius:4px;overflow:hidden;position:relative;
+  background:var(--dark);
+}
+.location-map iframe{width:100%;height:100%;border:0;filter:saturate(.85)contrast(1.05)}
+.location-map-shield{
+  position:absolute;inset:0;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;cursor:default;
+  transition:opacity .3s ease;
+}
+.location-map-shield.active{opacity:0;pointer-events:none}
+.location-map-hint{
+  padding:10px 20px;border-radius:4px;
+  background:rgba(20,18,16,.8);backdrop-filter:blur(8px);
+  font-family:var(--label);font-size:11px;letter-spacing:.15em;color:var(--text-light);
+  pointer-events:none;opacity:0;transition:opacity .4s ease;
+}
+.location-map-shield:hover .location-map-hint{opacity:1}
+
+/* ========== INQUIRIES ========== */
+.inquiries{
+  background:var(--cream);
+  padding:clamp(80px,10vw,140px) clamp(24px,6vw,80px);
+  text-align:center;position:relative;
+}
+.inquiries-label{
+  font-family:var(--label);font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;
+}
+.inquiries-title{
+  font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;font-style:italic;
+  color:var(--text-dark);margin-bottom:clamp(36px,5vw,56px);
+}
+.agent-card{
+  display:flex;align-items:center;gap:clamp(24px,3vw,40px);
+  max-width:560px;margin:0 auto;text-align:left;
+}
+.agent-photo{
+  width:clamp(90px,12vw,130px);height:clamp(90px,12vw,130px);border-radius:50%;
+  object-fit:cover;flex-shrink:0;
+  border:2px solid var(--cream-mid);
+}
+.agent-info{flex:1}
+.agent-name{
+  font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);font-weight:400;
+  color:var(--text-dark);margin-bottom:2px;
+}
+.agent-brokerage{
+  font-family:var(--label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:14px;
+}
+.agent-contact{display:flex;flex-direction:column;gap:6px}
+.agent-contact a{
+  font-size:13px;color:var(--text-dark);text-decoration:none;font-weight:400;
+  transition:color .3s ease;
+}
+.agent-contact a:hover{color:var(--amber)}
+.inquiries-cta{
+  display:inline-block;margin-top:clamp(36px,5vw,56px);
+  padding:14px 40px;border:1px solid var(--text-dark);
+  font-family:var(--label);font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--text-dark);text-decoration:none;
+  transition:all .3s ease;
+}
+.inquiries-cta:hover{background:var(--text-dark);color:var(--cream)}
+
+/* ========== FOOTER ========== */
+footer{
+  background:var(--dark);
+  padding:clamp(40px,5vw,60px) clamp(24px,6vw,80px);
+  text-align:center;border-top:1px solid rgba(200,155,106,.1);
+}
+.footer-price{
+  font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;
+  color:var(--cream);margin-bottom:8px;
+}
+.footer-address{
+  font-family:var(--label);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:32px;
+}
+.footer-legal{
+  font-size:11px;line-height:1.7;color:rgba(226,221,213,.35);max-width:700px;margin:0 auto;
+}
+.footer-legal a{color:rgba(226,221,213,.5);text-decoration:none}
+
+/* ========== LIGHTBOX ========== */
+.lightbox{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(14,12,10,.96);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox-img{
+  max-width:90vw;max-height:85vh;object-fit:contain;
+  border-radius:2px;
+  opacity:0;transform:scale(.97);
+  transition:opacity .3s ease .05s,transform .3s ease .05s;
+}
+.lightbox.open .lightbox-img{opacity:1;transform:scale(1)}
+.lightbox-close{
+  position:absolute;top:20px;right:24px;
+  width:44px;height:44px;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-close svg{width:20px;height:20px;stroke:var(--text-light);stroke-width:1.5;fill:none}
+.lightbox-close:hover svg{stroke:var(--amber)}
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;background:none;border:1px solid rgba(226,221,213,.2);
+  border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s ease;
+}
+.lightbox-nav:hover{border-color:var(--amber)}
+.lightbox-nav svg{width:16px;height:16px;stroke:var(--text-light);stroke-width:1.5;fill:none}
+.lightbox-prev{left:20px}
+.lightbox-next{right:20px}
+.lightbox-counter{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-family:var(--label);font-size:11px;letter-spacing:.2em;color:var(--stone);
+}
+
+/* ========== MOBILE ========== */
+@media(max-width:980px){
+  .nav-links{
+    position:fixed;top:0;right:0;bottom:0;width:280px;
+    background:rgba(20,18,16,.97);backdrop-filter:blur(16px);
+    flex-direction:column;align-items:flex-start;justify-content:center;
+    padding:40px;gap:24px;
+    transform:translateX(100%);transition:transform .4s ease;z-index:101;
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{font-size:12px;color:var(--text-light)}
+  .nav-toggle{display:flex}
+  .hero-frame svg{width:65vw}
+  .feature{grid-template-columns:1fr;min-height:auto}
+  .feature--wide-left,.feature--wide-right{grid-template-columns:1fr}
+  .feature-img{min-height:50vw}
+  .feature.img-first .feature-body{order:2}
+  .feature.img-first .feature-img{order:1}
+  .image-pair{grid-template-columns:1fr;height:auto}
+  .image-pair-item{aspect-ratio:3/2}
+  .agent-card{flex-direction:column;text-align:center;align-items:center}
+  .lightbox-prev{left:10px}
+  .lightbox-next{right:10px}
+  .lightbox-nav{width:36px;height:36px}
+  .gallery-item.wide{width:75vw}
+  .gallery-item.sq{width:65vw}
+  .gallery-item.pano{width:85vw}
+}
+@media(max-width:600px){
+  :root{--nav-h:56px}
+  .hero-address{font-size:2.2rem}
+  .stats-grid{gap:28px 48px}
+  .stat-num{font-size:2.4rem}
+  .film-play{width:62px;height:62px}
+  .film-play svg{width:18px;height:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-triangle">
+    <svg viewBox="0 0 80 70"><path d="M40 2 L78 68 L2 68 Z"/></svg>
+  </div>
+  <div class="loader-text">20002 156th Ave NE</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Woodinville</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#residence">Residence</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#setting">Setting</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#film">Film</a>
+    <a href="#location">Location</a>
+    <a href="#inquiries" class="nav-cta">Private Inquiry</a>
+  </div>
+  <div class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-frame">
+    <svg viewBox="0 0 200 174" preserveAspectRatio="xMidYMid meet">
+      <polygon points="100,2 198,172 2,172" fill="none" stroke="rgba(200,155,106,.35)" stroke-width=".6"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-address">20002 156th Ave NE</h1>
+    <p class="hero-sub">Woodinville, Washington</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- OPENING -->
+<section class="opening" id="residence">
+  <div class="reveal">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="opening-label">The Residence</div>
+    <h2>A rare A-frame on over an acre, where vaulted timber ceilings and walls of glass meet a private Woodinville setting.</h2>
+    <p>Built around a dramatic stone fireplace that rises through the heart of the home, this thoughtfully updated A-frame offers modern living wrapped in the warmth of natural materials. Mature landscaping, a fire pit, a sports court, and covered outdoor rooms extend the living across the full 1.10-acre property.</p>
+  </div>
+</section>
+
+<!-- ANGLE: dark to cream -->
+<div class="angle-divider angle-divider--cream"></div>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stats-grid reveal">
+    <div class="stat">
+      <div class="stat-num" data-target="4">0</div>
+      <div class="stat-label">Bedrooms</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="2.75">0</div>
+      <div class="stat-label">Bathrooms</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="3340" data-format="comma">0</div>
+      <div class="stat-label">Sq Ft</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="1.10">0</div>
+      <div class="stat-label">Acres</div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-BLEED: Great Room -->
+<section class="full-bleed reveal" id="rooms">
+  <div class="full-bleed-img" style="background-image:url('images/photos/11.jpg')"></div>
+  <div class="full-bleed-overlay"></div>
+  <div class="full-bleed-text">
+    <div class="full-bleed-title">Rising to the Peak</div>
+    <div class="full-bleed-caption">The Great Room</div>
+  </div>
+</section>
+
+<!-- FEATURE: Kitchen -->
+<section class="feature feature--wide-left reveal img-first">
+  <div class="feature-img">
+    <img src="images/photos/18.jpg" alt="Kitchen with granite counters and A-frame ceiling visible" loading="lazy">
+  </div>
+  <div class="feature-body feature-body--dark">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="feature-label">Kitchen</div>
+    <div class="feature-title">Granite, Light, and Timber</div>
+    <p class="feature-text">An updated open-concept kitchen anchors the main level with granite countertops, a center island, breakfast nook, and walk-in pantry. Through the pass-through, the A-frame's vaulted ceiling and stone fireplace remain in view.</p>
+  </div>
+</section>
+
+<!-- FULL-BLEED: Stone Fireplace -->
+<section class="full-bleed reveal">
+  <div class="full-bleed-img" style="background-image:url('images/photos/13.jpg')"></div>
+  <div class="full-bleed-overlay"></div>
+  <div class="full-bleed-text">
+    <div class="full-bleed-title">Stone and Fire</div>
+    <div class="full-bleed-caption">Floor-to-Peak Fireplace</div>
+  </div>
+</section>
+
+<!-- FEATURE: Primary Suite -->
+<section class="feature feature--wide-right reveal">
+  <div class="feature-body feature-body--cream">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="feature-label">Upper Level</div>
+    <div class="feature-title">The Primary Suite</div>
+    <p class="feature-text">Perched in the peak of the A-frame, the primary bedroom looks down over the great room through the stone fireplace's upper face. The ensuite features a glass-enclosed shower with heated tile, and an original refinished cast iron soaking tub.</p>
+    <div class="feature-detail">
+      <span class="feature-detail-item">Private Deck</span>
+      <span class="feature-detail-item">Heated Floors</span>
+    </div>
+  </div>
+  <div class="feature-img">
+    <img src="images/photos/38.jpg" alt="Primary bedroom beneath the A-frame peak with stone wall" loading="lazy">
+  </div>
+</section>
+
+<!-- IMAGE PAIR: Primary bedroom window + ensuite -->
+<div class="image-pair reveal">
+  <div class="image-pair-item">
+    <img src="images/photos/37.jpg" alt="Primary bedroom with triangular A-frame window over the deck" loading="lazy">
+  </div>
+  <div class="image-pair-item">
+    <img src="images/photos/45.jpg" alt="Primary ensuite with glass shower and soaking tub" loading="lazy">
+  </div>
+</div>
+
+<!-- FEATURE: Lower Level -->
+<section class="feature feature--wide-left reveal img-first">
+  <div class="feature-img">
+    <img src="images/photos/29.jpg" alt="Lower level rec room with sectional and stone fireplace" loading="lazy">
+  </div>
+  <div class="feature-body feature-body--dark">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="feature-label">Lower Level</div>
+    <div class="feature-title">Room to Gather</div>
+    <p class="feature-text">The daylight basement opens to a recreation room with wet bar, two additional bedrooms, and direct walkout access to the yard, fire pit, and sports court beyond.</p>
+    <div class="feature-detail">
+      <span class="feature-detail-item">Wet Bar</span>
+      <span class="feature-detail-item">Walkout</span>
+      <span class="feature-detail-item">Sports Court</span>
+    </div>
+  </div>
+</section>
+
+<!-- SETTING: Cinematic Grounds -->
+<section class="setting reveal" id="setting">
+  <div class="setting-bg" style="background-image:url('images/photos/06.jpg')"></div>
+  <div class="setting-overlay"></div>
+  <div class="setting-content">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="setting-label">The Setting</div>
+    <div class="setting-title">Over an Acre in Woodinville</div>
+    <p class="setting-text">Set on 1.10 acres in an established Woodinville neighborhood, the property is framed by mature trees and curated landscaping. Minutes from wine country tasting rooms, trails, and downtown Woodinville, with easy access to Redmond and the Eastside.</p>
+  </div>
+</section>
+
+<!-- ANGLE: setting to gallery cream -->
+<div class="angle-divider angle-divider--cream2"></div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="gallery-label">Through the Lens</div>
+    <div class="gallery-title">The Full Collection</div>
+  </div>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-item pano"><img src="images/photos/hero-dusk.jpg" alt="Rear A-frame at twilight" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/01a.jpg" alt="Front elevation at twilight" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/03a.jpg" alt="Fire pit and A-frame at twilight" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/02a.jpg" alt="Front entry and lit carport at twilight" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/04a.jpg" alt="Rear A-frame and patio at twilight" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/08.jpg" alt="Covered front entry with bench" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/10.jpg" alt="Garden path through the grounds" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/11.jpg" alt="Great room under the cathedral ceiling" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/13.jpg" alt="Floor-to-peak stone fireplace" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/14.jpg" alt="Living room with wall of windows" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/22.jpg" alt="Deck lounge with fire pit" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/12.jpg" alt="Dining beneath the A-frame ceiling" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/47.jpg" alt="Dining area and loft" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/17.jpg" alt="Stone fireplace and great room" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/18.jpg" alt="Updated kitchen with granite counters" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/19.jpg" alt="Kitchen and breakfast area" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/16.jpg" alt="Breakfast nook" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/25.jpg" alt="Private balcony off the suite" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/40.jpg" alt="Bedroom" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/38.jpg" alt="Interior detail" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/37.jpg" alt="Living space" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/42.jpg" alt="Primary suite in the A-frame peak" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/39.jpg" alt="Interior detail" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/45.jpg" alt="Primary ensuite" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/43.jpg" alt="Upper level" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/46.jpg" alt="Balcony view" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/27.jpg" alt="Recreation room" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/26.jpg" alt="Recreation room with sectional" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/28.jpg" alt="Lower level with wet bar" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/29.jpg" alt="Lower level" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/30.jpg" alt="Lower level bedroom" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/31.jpg" alt="Interior" loading="lazy"></div>
+    <div class="gallery-item sq"><img src="images/photos/32.jpg" alt="Interior detail" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/33.jpg" alt="Bedroom" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/34.jpg" alt="Interior" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/15.jpg" alt="Laundry room" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/36.jpg" alt="Covered patio and lawn" loading="lazy"></div>
+    <div class="gallery-item wide"><img src="images/photos/35.jpg" alt="Outdoor living" loading="lazy"></div>
+    <div class="gallery-item pano"><img src="images/photos/50.jpg" alt="Aerial of the property" loading="lazy"></div>
+    <div class="gallery-item pano"><img src="images/photos/52.jpg" alt="Aerial of the neighborhood" loading="lazy"></div>
+  </div>
+  <div class="gallery-nav">
+    <button class="gallery-btn" id="galleryPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="15,4 7,12 15,20"/></svg>
+    </button>
+    <div class="gallery-counter" id="galleryCounter">1 / 40</div>
+    <button class="gallery-btn" id="galleryNext" aria-label="Next">
+      <svg viewBox="0 0 24 24"><polyline points="9,4 17,12 9,20"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ANGLE: cream to dark -->
+<div class="angle-divider angle-divider--dark2"></div>
+
+<!-- CINEMA -->
+<section class="cinema" id="film">
+  <div class="cinema-head reveal">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="cinema-label">On Film</div>
+    <div class="cinema-title">The Residence in Motion</div>
+  </div>
+  <div class="film reveal" data-id="zS135x3WT2E">
+    <img class="film-poster" src="images/photos/hero-dusk.jpg" alt="Cinematic film of the residence" draggable="false">
+    <div class="film-overlay"></div>
+    <div class="film-meta"><span class="film-meta-num">Film</span><span>Cinematic Tour</span></div>
+    <div class="film-foot">
+      <div class="film-title"><em>20002 156th Ave NE</em></div>
+    </div>
+    <button class="film-play" aria-label="Play film">
+      <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+    </button>
+    <div class="film-frame"></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-inner reveal">
+    <div class="location-header">
+      <div class="location-label">Location</div>
+      <div class="location-title">Woodinville, Washington</div>
+    </div>
+    <div class="location-map">
+      <iframe id="map" src="about:blank" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2682.5!2d-122.1518!3d47.7585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549072e3f97c43f5%3A0x3b0ef2c19e8cfa4e!2s20002+156th+Ave+NE%2C+Woodinville%2C+WA+98072!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe>
+      <div class="location-map-shield" id="mapShield">
+        <div class="location-map-hint" id="mapHint"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE: dark to cream -->
+<div class="angle-divider angle-divider--cream"></div>
+
+<!-- INQUIRIES -->
+<section class="inquiries" id="inquiries">
+  <div class="reveal">
+    <div class="chevron"><svg viewBox="0 0 36 18"><polyline points="2,16 18,2 34,16"/></svg></div>
+    <div class="inquiries-label">Contact</div>
+    <div class="inquiries-title">Private Inquiries</div>
+    <div class="agent-card">
+      <img class="agent-photo" src="images/darius-cincys.jpg" alt="Darius Cincys">
+      <div class="agent-info">
+        <div class="agent-name">Darius Cincys</div>
+        <div class="agent-brokerage">Coldwell Banker Bain</div>
+        <div class="agent-contact">
+          <a href="tel:+14253671252">425.367.1252</a>
+          <a href="mailto:darius@callDarius.com">darius@callDarius.com</a>
+        </div>
+      </div>
+    </div>
+    <a href="mailto:darius@callDarius.com?subject=Inquiry%20%E2%80%93%2020002%20156th%20Ave%20NE" class="inquiries-cta">Schedule a Showing</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-price">$1,850,000</div>
+  <div class="footer-address">20002 156th Ave NE, Woodinville, WA 98072</div>
+  <div class="footer-legal">
+    MLS #2528635. Listed by Darius Cincys, Coldwell Banker Bain. Information deemed reliable but not guaranteed. Buyer to verify all information to their satisfaction. Square footage per county records.
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+    <svg viewBox="0 0 24 24"><polyline points="15,4 7,12 15,20"/></svg>
+  </button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+    <svg viewBox="0 0 24 24"><polyline points="9,4 17,12 9,20"/></svg>
+  </button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
+
+/* Loader */
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){document.getElementById('loader').classList.add('done')},1800);
+});
+
+/* Nav scroll state */
+var nav=document.getElementById('nav');
+var scrolled=false;
+function checkNav(){
+  var s=window.scrollY>60;
+  if(s!==scrolled){scrolled=s;nav.classList.toggle('scrolled',s)}
+}
+window.addEventListener('scroll',checkNav,{passive:true});
+checkNav();
+
+/* Mobile nav toggle */
+var toggle=document.getElementById('navToggle');
+var links=document.getElementById('navLinks');
+toggle.addEventListener('click',function(){
+  links.classList.toggle('open');
+  var spans=toggle.querySelectorAll('span');
+  if(links.classList.contains('open')){
+    spans[0].style.transform='rotate(45deg) translate(4px,4px)';
+    spans[1].style.opacity='0';
+    spans[2].style.transform='rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans[0].style.transform='';spans[1].style.opacity='';spans[2].style.transform='';
+  }
+});
+links.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click',function(){
+    links.classList.remove('open');
+    var spans=toggle.querySelectorAll('span');
+    spans[0].style.transform='';spans[1].style.opacity='';spans[2].style.transform='';
+  });
+});
+
+/* Smooth scroll for nav links */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href');
+    if(id==='#') return;
+    var el=document.querySelector(id);
+    if(el){
+      e.preventDefault();
+      var y=el.getBoundingClientRect().top+window.scrollY-64;
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
+  });
+});
+
+/* Scroll reveal */
+var reveals=document.querySelectorAll('.reveal');
+var revealObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');revealObs.unobserve(e.target)}
+  });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){revealObs.observe(el)});
+
+/* Stat count-up */
+var statsDone=false;
+var statsSection=document.getElementById('stats');
+var statsObs=new IntersectionObserver(function(entries){
+  if(entries[0].isIntersecting&&!statsDone){
+    statsDone=true;
+    document.querySelectorAll('.stat-num').forEach(function(el){
+      var target=parseFloat(el.dataset.target);
+      var format=el.dataset.format;
+      var duration=1400;
+      var start=performance.now();
+      function tick(now){
+        var p=Math.min((now-start)/duration,1);
+        p=1-Math.pow(1-p,3);
+        var v=p*target;
+        if(format==='comma') el.textContent=Math.round(v).toLocaleString();
+        else if(target%1!==0) el.textContent=v.toFixed(2);
+        else el.textContent=Math.round(v);
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+},{threshold:0.4});
+statsObs.observe(statsSection);
+
+/* Gallery drag-scroll with momentum */
+var track=document.getElementById('galleryTrack');
+var items=track.querySelectorAll('.gallery-item');
+var totalItems=items.length;
+var counter=document.getElementById('galleryCounter');
+var isDragging=false,startX=0,scrollStart=0,lastX=0,lastTime=0,velocity=0;
+var dragMoved=false;
+
+function updateCounter(){
+  var scrollLeft=track.scrollLeft;
+  var idx=0;
+  for(var i=0;i<items.length;i++){
+    if(items[i].offsetLeft-track.offsetLeft<=scrollLeft+track.clientWidth/2){idx=i}
+  }
+  counter.textContent=(idx+1)+' / '+totalItems;
+}
+
+track.addEventListener('mousedown',function(e){
+  isDragging=true;dragMoved=false;startX=e.clientX;scrollStart=track.scrollLeft;
+  lastX=e.clientX;lastTime=Date.now();velocity=0;
+  track.classList.add('dragging');
+  e.preventDefault();
+});
+window.addEventListener('mousemove',function(e){
+  if(!isDragging) return;
+  var dx=e.clientX-startX;
+  if(Math.abs(dx)>4) dragMoved=true;
+  track.scrollLeft=scrollStart-dx;
+  var now=Date.now();
+  var dt=now-lastTime;
+  if(dt>0){velocity=(lastX-e.clientX)/dt;lastX=e.clientX;lastTime=now}
+});
+window.addEventListener('mouseup',function(){
+  if(!isDragging) return;
+  isDragging=false;
+  track.classList.remove('dragging');
+  var v=velocity*800;
+  if(Math.abs(v)>10){
+    track.scrollBy({left:v,behavior:'smooth'});
+  }
+  velocity=0;
+  setTimeout(updateCounter,350);
+});
+
+track.addEventListener('touchstart',function(e){
+  startX=e.touches[0].clientX;scrollStart=track.scrollLeft;
+  lastX=startX;lastTime=Date.now();velocity=0;
+},{passive:true});
+track.addEventListener('touchmove',function(e){
+  var dx=e.touches[0].clientX-startX;
+  track.scrollLeft=scrollStart-dx;
+  var now=Date.now();var dt=now-lastTime;
+  if(dt>0){velocity=(lastX-e.touches[0].clientX)/dt;lastX=e.touches[0].clientX;lastTime=now}
+},{passive:true});
+track.addEventListener('touchend',function(){
+  var v=velocity*600;
+  if(Math.abs(v)>10) track.scrollBy({left:v,behavior:'smooth'});
+  velocity=0;
+  setTimeout(updateCounter,350);
+});
+track.addEventListener('scroll',function(){updateCounter()},{passive:true});
+
+document.getElementById('galleryPrev').addEventListener('click',function(){
+  track.scrollBy({left:-track.clientWidth*.7,behavior:'smooth'});
+  setTimeout(updateCounter,400);
+});
+document.getElementById('galleryNext').addEventListener('click',function(){
+  track.scrollBy({left:track.clientWidth*.7,behavior:'smooth'});
+  setTimeout(updateCounter,400);
+});
+
+/* Lightbox */
+var lightbox=document.getElementById('lightbox');
+var lbImg=document.getElementById('lightboxImg');
+var lbCounter=document.getElementById('lightboxCounter');
+var lbClose=document.getElementById('lightboxClose');
+var lbPrev=document.getElementById('lightboxPrev');
+var lbNext=document.getElementById('lightboxNext');
+var currentLb=-1;
+var galleryImgs=Array.from(items).map(function(el){return el.querySelector('img').src});
+
+items.forEach(function(item,i){
+  item.addEventListener('click',function(){
+    if(dragMoved) return;
+    openLightbox(i);
+  });
+});
+
+function openLightbox(i){
+  currentLb=i;
+  lbImg.src=galleryImgs[i];
+  lbCounter.textContent=(i+1)+' / '+totalItems;
+  lightbox.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow='';
+}
+function navLb(dir){
+  currentLb=(currentLb+dir+totalItems)%totalItems;
+  lbImg.style.opacity='0';
+  setTimeout(function(){
+    lbImg.src=galleryImgs[currentLb];
+    lbCounter.textContent=(currentLb+1)+' / '+totalItems;
+    lbImg.style.opacity='';
+  },150);
+}
+lbClose.addEventListener('click',closeLightbox);
+lbPrev.addEventListener('click',function(){navLb(-1)});
+lbNext.addEventListener('click',function(){navLb(1)});
+lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox()});
+document.addEventListener('keydown',function(e){
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') navLb(-1);
+  if(e.key==='ArrowRight') navLb(1);
+});
+
+/* Film: click poster -> swap to autoplay YouTube iframe with sound */
+document.querySelectorAll('.film').forEach(function(film){
+  film.addEventListener('click',function(){
+    if(film.classList.contains('playing')) return;
+    var id=film.dataset.id;
+    var frame=film.querySelector('.film-frame');
+    frame.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    film.classList.add('playing');
+  });
+});
+
+/* Map: cooperative gesture */
+var shield=document.getElementById('mapShield');
+var hint=document.getElementById('mapHint');
+var mapFrame=document.getElementById('map');
+var isMac=navigator.platform.toUpperCase().indexOf('MAC')>=0;
+hint.textContent=isMac?'Hold ⌘ to interact':'Hold Ctrl to interact';
+
+function activateMap(){shield.classList.add('active');if(mapFrame.src==='about:blank')mapFrame.src=mapFrame.dataset.src}
+function deactivateMap(){shield.classList.remove('active')}
+
+window.addEventListener('keydown',function(e){
+  if(e.key==='Meta'||e.key==='Control') activateMap();
+});
+window.addEventListener('keyup',function(e){
+  if(e.key==='Meta'||e.key==='Control') deactivateMap();
+});
+shield.addEventListener('click',function(){
+  activateMap();
+  setTimeout(deactivateMap,4000);
+});
+
+/* Lazy load map when in view */
+var mapObs=new IntersectionObserver(function(entries){
+  if(entries[0].isIntersecting){
+    if(mapFrame.src==='about:blank') mapFrame.src=mapFrame.dataset.src;
+    mapObs.unobserve(entries[0].target);
+  }
+},{threshold:0.1});
+mapObs.observe(document.querySelector('.location'));
+
+})();
+</script>
+</body>
+</html>

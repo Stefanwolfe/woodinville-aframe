@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+.claude/
+images/mls/
+mls-order.json
+flyer.html
+spreads.html
+*.pdf
+/photos/
+/assets/
